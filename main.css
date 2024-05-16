@@ -1,0 +1,33 @@
+html, body {
+    display: flow-root;
+    margin: 0;
+    box-sizing: border-box;
+    width: 1920px;
+    height: 1080px;
+}
+
+.bg {
+    height: 50%;
+    width: 100%;
+    background-size: cover;
+    background-clip: border-box;
+    background-repeat: no-repeat;
+    background-image: url("https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/280367127_101254365933580_4136589284860349200_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=H7Xxrkr9w4UQ7kNvgGYrcA9&_nc_ht=scontent.fsgn2-8.fna&oh=00_AYBcYVssubwkZ1BPqXY9gOI8Dg6DyhM3gnBTF1Vi1yd-dg&oe=66476C95");
+}
+
+.wiki {
+    height: 20px;
+    width: 150px;
+    background-color: rgba(255, 255, 255, 0.527);
+    position: absolute;
+    left: 50rem;
+    bottom: 10rem;
+}
+
+.wiki:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.wiki:active {
+    background-color: rgb(0, 225, 255);
+}
