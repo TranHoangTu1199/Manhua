@@ -1,0 +1,103 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #000;
+}
+
+html, body{
+    width: 100%;
+}
+
+html {
+    display: flow-root;
+    font-family: Tahoma;
+    font-size: 28px;
+    text-overflow: clip;
+}
+
+body {
+    display: table;
+    margin: 0;
+}
+
+img {     
+    margin: 0;
+    border: 0;
+    padding: 0;
+    display: table-cell;
+}
+
+.header {
+    position: fixed;
+    justify-content: center;
+    display: inline-flex;
+    height: 60px;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.219);
+    border-radius: 28px;
+}
+
+#nav {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    position: relative;
+    flex: 1;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 60px;
+    background-position: center;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.list {
+    display: flow-root;
+    position: absolute;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.541);
+    list-style: none;
+    border-radius: 5px;
+    top: 60px;
+    left: -150vw;
+    width: 400%;
+    transition: 1s;
+    opacity: 0;
+    overflow-y: scroll;
+    max-height: 90vh;
+}
+
+.list::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+}
+
+.list::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 153, 255, 0.432);
+    border-radius: 5px;
+}
+
+.list li {
+    padding: 5px 20px;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    border-radius: 25px;
+    color: #000;
+    font-weight: bolder;
+    width: 100%;
+    user-select: none;
+    white-space: nowrap;
+    text-overflow: clip;
+}
+
+.list li:hover {
+    background-color: aqua;
+}
+
+#nav:hover {
+    background-color: rgba(3, 154, 255, 0.603);
+}
