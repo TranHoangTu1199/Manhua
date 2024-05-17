@@ -2,22 +2,20 @@
 
 const autoWidth = 1000;
 const myChap = 1;
-//let myChaps;
 
 
 const myChaps = {
-    n: 4,
+    n: 46,
     chap: [
         "Chap 0: ABYSSAL NGỦ SAY",
-        "Chap 1: ÁC MỘNG GIÁNG THẾ",
-        "Chap 2: THIẾU NỮ TỪ TRONG ABYSSAL"
+        "Chap 1: ÁC MỘNG GIÁNG THẾ"
     ]
 }
 
 const classList = document.getElementsByClassName("list")[0];
 for (let i = 0; i < myChaps.chap.length; i++) {
     const chapter = document.createElement("li");
-    chapter.innerHTML = `<a href=""${myChap === i ? " style=\"color: blue;\"" : ""}> ${myChaps.chap[i]} </a>`;
+    chapter.innerHTML = `<a href="../chap${i}/chap${i}.html"${myChap === i ? " style=\"color: blue;\"" : ""}> ${myChaps.chap[i]} </a>`;
     classList.appendChild(chapter);
 }
 
@@ -36,13 +34,13 @@ setHeader.left = (maxWidth >= autoWidth) ? `${(maxWidth - autoWidth) / 2}px` : 0
 setHeader.rigth = (maxWidth >= autoWidth) ? `${(maxWidth - autoWidth) / 2}px` : 0;
 setHeader.width = (maxWidth >= autoWidth) ? `${autoWidth}px` : "100%";
 
-for (let i = 1; i < 47; i++) {
+for (let i = 1; i <= myChaps.n; i++) {
         
     const newImg = document.createElement("img");
     Images[i - 1] = newImg 
     const imgName = `000${i}.jpg`;
     newImg.setAttribute('style', (maxWidth >= autoWidth) ? `width: ${autoWidth}px; margin-left: ${(maxWidth - autoWidth) / 2}px;` : "width: 100%;");
-    newImg.setAttribute('src', imgName.substr(imgName.length - 8, imgName.length));
+    newImg.setAttribute('src', imgName.substring(imgName.length - 8, imgName.length));
     document.body.appendChild(newImg);
 
 }
