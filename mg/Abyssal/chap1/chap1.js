@@ -3,7 +3,6 @@
 const autoWidth = 1000;
 const myChap = 1;
 //let myChaps;
-window.alert(1);
 
 
 const myChaps = {
