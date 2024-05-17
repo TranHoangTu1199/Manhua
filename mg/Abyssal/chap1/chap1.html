@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> Thác Vị Thời Không - 错位时空 >> Abyssal > chap 1 </title>
+        <meta charset="utf-8">
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+                text-decoration: none;
+                color: #000;
+            }
+            
+            html, body{
+                width: 100%;
+            }
+
+            html {
+                display: flow-root;
+                font-family: Helvetica, Arial, sans-serif;
+                font-size: 30px;
+            }
+
+            body {
+                display: table;
+                margin: 0;
+            }
+
+            img {     
+                margin: 0;
+                border: 0;
+                padding: 0;
+                display: table-cell;
+            }
+
+            .header {
+                position: fixed;
+                justify-content: center;
+                display: inline-flex;
+                height: 60px;
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 100vw;
+                background-color: rgba(189, 189, 189, 0.308);
+            }
+
+            #nav {
+                display: inline-flex;
+                flex-wrap: nowrap;
+                position: relative;
+                flex: 1;
+                height: 100%;
+                background-repeat: no-repeat;
+                background-size: 60px;
+                background-position: center;
+            }
+
+            .list {
+                display: none;
+                position: absolute;
+                flex-wrap: wrap;
+                background-color: rgb(255, 255, 255);
+                list-style: none;
+                border-radius: 10px;
+                top: 60px;
+                width: 200%;
+            }
+
+            .chap {
+                padding: 5px 15px;
+                display: inline-flex;
+                flex-wrap: nowrap;
+                border-radius: 10px;
+                color: #000;
+            }
+
+            .chap:hover {
+                background-color: aqua;
+            }
+
+            #nav:hover {
+                background-color: rgba(3, 154, 255, 0.603);
+            }
+
+        </style>
+        
+    </head>
+
+    <body>
+        <div class="header">
+            <div id="nav" style="background-image: url(../../../icon/left.png);">
+                <a href=""></a>
+            </div>
+            <div id="nav" style="background-image: url(../../../icon/home.png);">
+                <a href=""></a>
+            </div>
+            <div id="nav" onmousemove="listMousemove()" onmouseleave="listMouselea()" style="background-image: url(../../../icon/list.png);">
+                <ul class="list">
+                    <li class="chap"><a href=""> Chap 1: Niềm Hi Vọng Nhỏ Nhoi </a></li>
+                    <li class="chap"><a href=""> Chap 2: Bóng Tối Vụt Tắt </a></li>
+                    <li class="chap"><a href=""> Chap 3: Kiêu Hãnh </a></li>
+                    <li class="chap"><a href=""> Chap 4: Lặng Lẽ </a></li>
+                    <li class="chap"><a href=""> Chap 5: Màn Đêm </a></li>
+                </ul>
+            </div>
+            <div id="nav" style="background-image: url(../../../icon/right.png);">
+                <a href=""></a>
+            </div>
+        </div>
+        <script>
+
+            const autoWidth = 1080;
+
+            function removeTag(tagName) {
+                let myTag = document.getElementsByTagName(tagName);
+                while (myTag.length > 0) {
+                    myTag[0].parentNode.removeChild(myTag[0]);
+                }
+            }
+            
+            let Images = [];
+            let maxWidth = document.documentElement.clientWidth;
+
+            let setHeader = document.getElementsByClassName("header")[0].style;
+            setHeader.paddingLeft = (maxWidth >= autoWidth) ? `${(maxWidth - autoWidth) / 2}px` : 0;
+            setHeader.paddingRight = (maxWidth >= autoWidth) ? `${(maxWidth - autoWidth) / 2}px` : 0;
+            //setHeader.width = `${maxWidth}px`
+
+            for (let i = 1; i < 47; i++) {
+                    
+                let newImg = document.createElement("img");
+                Images[i - 1] = newImg 
+                let imgName = `000${i}.jpg`;
+                newImg.setAttribute('style', (maxWidth >= autoWidth) ? `width: ${autoWidth}px; margin-left: ${(maxWidth - autoWidth) / 2}px;` : "width: 100%;");
+                newImg.setAttribute('src', imgName.substr(imgName.length - 8, imgName.length));
+                document.body.appendChild(newImg);
+
+            }
+
+            let listClass = document.getElementsByClassName("list")[0].style;
+
+            function listMousemove() {
+                listClass.display = "flow";
+
+            }
+
+            function listMouselea() {
+                listClass.display = "none";
+            }
+
+            function reLoad () {
+                let maxWidth = document.documentElement.clientWidth;
+                for (let i = 0; i < Images.length; i++) {
+                    Images[i].setAttribute('style', (maxWidth >= autoWidth) ? `width: ${autoWidth}px; margin-left: ${(maxWidth - autoWidth) / 2}px;` : "width: 100%;");
+                }
+                setHeader.paddingLeft = (maxWidth >= autoWidth) ? `${(maxWidth - autoWidth) / 2}px` : 0;
+                setHeader.paddingRight = (maxWidth >= autoWidth) ? `${(maxWidth - autoWidth) / 2}px` : 0;
+                //setHeader.width = `${maxWidth}px`
+                setHeader.transition = "0s";
+            }
+
+            let pageY = window.scrollY
+            function mouseMove (m) {
+                if (pageY > window.scrollY) {
+                    setHeader.top = 0;
+                    setHeader.transition = "0.3s";
+                } else {
+                    setHeader.top = "-46px";
+                    setHeader.transition = "0.3s";
+                }
+
+                pageY = window.scrollY
+            }
+
+            window.addEventListener('resize', reLoad);
+            window.addEventListener('scroll', mouseMove);
+
+        </script>
+    </body>
+</html>
